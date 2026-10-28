@@ -1,4 +1,4 @@
-TC-001: Manual Baseline Analysis
+# TC-001: Manual Baseline Analysis
 
 ## Objective
 
@@ -10,11 +10,11 @@ Synthetic security logs were generated and ingested into Elasticsearch using Fil
 
 ## Results
 
-- **Logs analyzed: 1,000
-- **Experimental runs: 5
-- **Average identification time: 3,144 seconds (52.4 minutes)
-- **Median time: 3,120 seconds
-- **Standard deviation: 201.69 seconds
+- **Logs analyzed:** 1,000
+- **Experimental runs:** 5
+- **Average identification time:** 3,144 seconds (52.4 minutes)
+- **Median time:** 3,120 seconds
+- **Standard deviation:** 201.69 seconds
 
 ## Conclusion
 
