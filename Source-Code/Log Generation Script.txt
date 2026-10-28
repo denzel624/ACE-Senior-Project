@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "Generating HIGH priority logs..."
+for i in {1..100}; do
+  logger "Multiple failed login attempts detected from 10.0.0.$i"
+  logger "Unauthorized blocked access attempt from 10.0.0.$i"
+  logger "Blocked admin login attempt from 10.0.0.$i port 22"
+done
+
+echo "Generating MEDIUM priority logs..."
+for i in {1..100}; do
+  logger "Failed password detected from 192.168.1.$i"
+  logger "Invalid user detected from 172.16.0.$i"
+  logger "Failed login attempt from 192.168.1.$i"
+done
+
+echo "Generating LOW priority logs..."
+for i in {1..100}; do
+  logger "System operation completed successfully"
+  logger "Accepted password from user on network 192.168.10.$i"
+  logger "Routine background process completed successfully"
+  logger "Accepted user login from 192.168.10.$i"
+done
+
+echo "Log Generation Complete."

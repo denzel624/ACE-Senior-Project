@@ -1,0 +1,38 @@
+String msg = params._source['message'];
+int score = 0;
+
+if (msg != null) {
+    msg = msg.toLowerCase();
+
+    // Severity Indicators
+    if (msg.contains("blocked")) score += 60;
+    if (msg.contains("multiple")) score += 50;
+    if (msg.contains("denied")) score += 40;
+    if (msg.contains("unauthorized")) score += 35;
+    if (msg.contains("failed")) score += 30;
+    if (msg.contains("invalid")) score += 20;
+ 
+    // Account Verification
+    if (msg.contains("admin")) score += 15;
+    if (msg.contains("root")) score += 15;
+    if (msg.contains("port 22")) score += 10;
+
+    // Networks
+    if (msg.contains("10.0.0")) score += 15;
+    if (msg.contains("192.168")) score += 10;
+    if (msg.contains("172.16")) score += 10;
+    if (msg.contains("127.0.0")) score += 5;
+
+    // Low Risk
+    if (msg.contains("accepted")) score -= 10;
+    if (msg.contains("success")) score -= 10;
+    if (msg.contains("completed")) score -= 10;
+
+    // Final Calculated Priority
+    if (score >= 70) {
+        emit("HIGH");
+    } else if (score >= 30) {
+        emit("MEDIUM");
+    } else {
+        emit("LOW");
+    } }
